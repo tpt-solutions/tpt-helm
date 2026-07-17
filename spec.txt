@@ -1,0 +1,32 @@
+Design Document: TPT Helm
+Project Name: TPT Helm (Open-Source Maritime Navigation & Ship Control)
+Industry: Maritime & Shipping
+Status: Phase 1 Design / Pre-Alpha
+1. Executive Summary
+The bridge of a $100M cargo ship runs on navigation software built on Windows CE and 1990s C++. It's a massive cybersecurity risk—ships can be hijacked via GPS spoofing. The proprietary vendors (Wärtsilä, Kongsberg) charge millions and take years to patch vulnerabilities.
+TPT Helm is an open-source, web-based maritime navigation system written in Rust and TypeScript. It implements ECDIS (Electronic Chart Display and Information System), integrates with AIS (Automatic Identification System), and provides real-time route optimization.
+2. System Architecture
+Core Components:
+ECDIS Engine: Renders nautical charts, overlays AIS targets, and displays the ship's position.
+Route Planning & Optimization: Calculates fuel-efficient routes based on weather, currents, and traffic.
+GPS Spoofing Detection: Cross-checks GPS with inertial navigation and celestial navigation to detect spoofing attacks.
+Web-Based Interface: Runs in a browser, so it can be updated over the internet without dry-docking the ship.
+Target Tech Stack:
+Backend: Rust (for chart rendering and route optimization)
+Frontend: TypeScript + React (for the web UI)
+Protocols: AIS (NMEA 0183), ECDIS (S-52/S-57 chart standards)
+Hardware: Standard marine PCs or ruggedized tablets
+3. The TPT Fulcrum Strategy
+You use existing open-source charting libraries as the foundation.
+Phase 1: Write the AIS parser in Rust.
+Phase 2: Point TPT Fulcrum at the C++ code of OpenCPN (the standard open-source chart plotter). Extract the rendering logic into a Knowledge Graph. Generate optimized Rust with GPU acceleration.
+Phase 3: Integrate with real ship hardware. Deploy on a cargo vessel.
+Phase 4: Pursue IMO (International Maritime Organization) type approval.
+4. Integration with TPT Ecosystem
+TPT Helm (Ship): Navigation, route planning, GPS spoofing detection.
+tpt-flight-control (Port): Manages ship scheduling and berth assignments.
+Communication: Helm sends ship position to tpt-flight-control via satellite (Starlink).
+5. The Market Disruption
+Shipping Companies: Can patch GPS spoofing vulnerabilities in hours instead of years.
+Small Vessels: Can run professional-grade navigation on a $500 tablet instead of a $50,000 proprietary system.
+Navies: Can transparently audit the code to ensure there are no backdoors.
