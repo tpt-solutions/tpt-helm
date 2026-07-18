@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ais",
+    "crates/ecdis",
+    "crates/route",
+    "crates/spoof",
+    "crates/flight",
+]
+exclude = []
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+license = "MIT OR Apache-2.0"
+authors = ["TPT Solutions"]
+repository = "https://github.com/tpt-solutions/tpt-helm"
+homepage = "https://tpt-solutions.example/tpt-helm"
+description = "TPT Helm — open-source maritime navigation & ship control platform"
+
+[workspace.dependencies]
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "warn"
+expect_used = "warn"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[profile.bench]
+lto = true
+codegen-units = 1

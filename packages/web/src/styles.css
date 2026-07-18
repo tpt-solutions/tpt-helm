@@ -1,0 +1,55 @@
+/* SPDX-License-Identifier: MIT OR Apache-2.0 */
+
+:root {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0b1622;
+  color: #e6edf3;
+}
+
+a {
+  color: #4aa3ff;
+  text-decoration: none;
+}
+
+a.active {
+  font-weight: 700;
+  color: #fff;
+}
+
+button {
+  cursor: pointer;
+  background: #1f6feb;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+input {
+  background: #0d1b2a;
+  color: #e6edf3;
+  border: 1px solid #2c4a63;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

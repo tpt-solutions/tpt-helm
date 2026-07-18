@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "tp-helm-route"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "Fuel-efficient vessel route planning & optimization for TPT Helm"
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+# Geospatial math: great-circle distance, bearing, polygon intersection.
+geo = "0.29"
+# Deterministic RNG for any randomized search (reproducible optimization runs).
+rand = { version = "0.8", features = ["small_rng"] }
+
+[dev-dependencies]
+# Benchmarks for planning throughput on long voyages.
+criterion = { version = "0.5", default-features = false }
+
+[[bench]]
+name = "route_plan"
+harness = false
+
+[lib]
+name = "tp_helm_route"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

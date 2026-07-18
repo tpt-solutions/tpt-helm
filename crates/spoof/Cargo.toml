@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "tp-helm-spoof"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "GPS spoofing / interference detection for TPT Helm via inertial & celestial cross-checks"
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false }
+
+[[bench]]
+name = "detect"
+harness = false
+
+[lib]
+name = "tp_helm_spoof"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

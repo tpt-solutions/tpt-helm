@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "tp-helm-ecdis"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "S-57/S-52 ECDIS chart data model, symbology engine, and wgpu rendering for TPT Helm"
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+# 2D geometry and spatial math.
+geo = { version = "0.29", features = ["serde"] }
+# Smallvec for stack-friendly vertex buffers.
+smallvec = "1.13"
+
+[dependencies.wgpu]
+version = "0.19"
+optional = true
+
+[dependencies.bytemuck]
+version = "1.14"
+features = ["derive"]
+optional = true
+
+[dev-dependencies]
+# Golden-image rendering comparisons.
+approx = "0.5"
+# Benchmarks for many-target / large-cell load tests.
+criterion = { version = "0.5", default-features = false }
+
+[[bench]]
+name = "render_load"
+harness = false
+
+[features]
+# Off by default so CI without a GPU can still build and unit-test the
+# headless (CPU) parts of the engine.
+gpu = ["wgpu", "bytemuck"]
+
+[lib]
+name = "tp_helm_ecdis"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

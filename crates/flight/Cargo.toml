@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "tp-helm-flight"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+description = "TPT Helm ↔ tpt-flight-control integration: satellite ship-position reporting with offline queueing"
+
+[dependencies]
+thiserror.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false }
+
+[[bench]]
+name = "delivery"
+harness = false
+
+[lib]
+name = "tp_helm_flight"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

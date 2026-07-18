@@ -1,0 +1,27 @@
+{
+  "name": "tpt-helm",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT OR Apache-2.0",
+  "description": "TPT Helm — open-source maritime navigation & ship control platform",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tpt-solutions/tpt-helm"
+  },
+  "scripts": {
+    "build": "turbo run build --filter=./packages/*",
+    "lint": "turbo run lint --filter=./packages/*",
+    "test": "turbo run test --filter=./packages/*",
+    "typecheck": "turbo run typecheck --filter=./packages/*",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "turbo": "^2.1.0",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@9.7.0"
+}

@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
+[package]
+name = "tp-helm-ais-fuzz"
+version = "0.0.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+tp-helm-ais = { path = ".." }
+
+[[bin]]
+name = "ais_decode"
+path = "fuzz_targets/ais_decode.rs"
+test = false
+doc = false
