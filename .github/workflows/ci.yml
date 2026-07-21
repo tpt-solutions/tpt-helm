@@ -48,6 +48,6 @@ jobs:
       - name: Build
         run: pnpm build
       - name: Install Playwright browsers
-        run: pnpm --filter @tpt-helm/web exec playwright install --with-deps chromium
+        run: pnpm --filter @tpt-helm/web exec playwright install --with-deps
       - name: E2E tests
         run: pnpm --filter @tpt-helm/web test
